@@ -1,0 +1,35 @@
+{
+ "sleepwagens-nacht": {
+  "w": 1448,
+  "h": 1086,
+  "sizes": [
+   480,
+   900,
+   1440
+  ]
+ },
+ "transport-nacht": {
+  "w": 900,
+  "h": 1599,
+  "sizes": [
+   480,
+   900
+  ]
+ },
+ "golf-oprijwagen": {
+  "w": 900,
+  "h": 1599,
+  "sizes": [
+   480,
+   900
+  ]
+ },
+ "sprinter-oprijplateau": {
+  "w": 900,
+  "h": 1599,
+  "sizes": [
+   480,
+   900
+  ]
+ }
+}
