@@ -431,6 +431,31 @@ a.contact-card:hover { border-color: var(--yellow); box-shadow: var(--shadow); }
 .feature h3 { margin-bottom: .3em; }
 .feature p { margin: 0; color: var(--grey-300); }
 
+/* ---------- Kennisbank ---------- */
+.article-card { padding: 0; overflow: hidden; }
+.article-card > *:not(.article-photo) { margin-left: 24px; margin-right: 24px; }
+.article-card .card-more { padding-bottom: 24px; }
+.article-photo { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--grey-200); margin-bottom: 18px; }
+.article-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.article-card:hover .article-photo img { transform: scale(1.04); }
+.article-meta { display: flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 600; color: var(--grey-500); margin-bottom: 8px; }
+.article-meta .icon { width: 16px; height: 16px; }
+.article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.article-body h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); text-transform: none; margin-top: 1.4em; }
+.article-body h2:first-child { margin-top: 0; }
+.article-date { font-size: .9rem; color: var(--grey-500) !important; margin-top: 2em; }
+.article-aside { position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: 20px; }
+.aside-card { background: var(--black); color: var(--white); border-radius: 12px; padding: 24px; display: grid; gap: 10px; border-top: 4px solid var(--yellow); }
+.aside-card p { margin: 0 0 6px; color: var(--grey-300); }
+.aside-card .btn-outline { color: var(--white); }
+.aside-title { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; color: var(--white) !important; margin: 0 0 4px; }
+.aside-links { border: 1px solid var(--grey-200); border-radius: 12px; padding: 20px; display: grid; gap: 6px; }
+.aside-links .aside-title { color: var(--ink) !important; font-size: 1.2rem; }
+.aside-links a { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+.aside-links a:hover { background: var(--grey-100); }
+.aside-links .icon { color: var(--yellow-ink); }
+.aside-links .arrow { margin-left: auto; }
+
 /* ---------- Losse pagina's ---------- */
 .page { padding: 56px 0 96px; }
 .page h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); text-transform: uppercase; }
@@ -514,6 +539,8 @@ a.contact-card:hover { border-color: var(--yellow); box-shadow: var(--shadow); }
   .trust-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.08); }
   .contact-cards { grid-template-columns: repeat(2, 1fr); }
   .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+  .article-layout { grid-template-columns: 1fr; }
+  .article-aside { position: static; }
   .faq-nav { position: static; display: flex; flex-wrap: wrap; gap: 8px; }
   .faq-nav .kicker { width: 100%; }
   .faq-nav a { border: 1px solid var(--grey-200); border-radius: 6px; }

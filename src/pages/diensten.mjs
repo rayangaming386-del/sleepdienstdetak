@@ -3,6 +3,7 @@ import {
   SITE, icon, img, pageHero, aanvraagSection, faqList, faqSchema, serviceSchema,
   breadcrumbSchema, businessSchema, serviceCards, ctaBand, telHref
 } from "../site.mjs";
+import { ARTICLES, articleTeasers } from "./kennisbank.mjs";
 
 function featureGrid(items) {
   return items.map(([ic, title, text]) => `<div class="feature">
@@ -52,7 +53,20 @@ function servicePage(d) {
       </div>
     </section>
 
-    <section class="section">
+    ${(() => {
+      const rel = ARTICLES.filter((a) => a.services.includes(d.slug)).map((a) => a.slug).slice(0, 3);
+      return rel.length ? `<section class="section">
+      <div class="wrap">
+        <p class="kicker" data-reveal>Kennisbank</p>
+        <h2 data-reveal>Handige artikelen</h2>
+        <div class="cards" data-stagger>
+          ${articleTeasers(rel)}
+        </div>
+      </div>
+    </section>` : "";
+    })()}
+
+    <section class="section section-alt">
       <div class="wrap">
         <p class="kicker" data-reveal>Meer van De Tak</p>
         <h2 data-reveal>Andere diensten</h2>

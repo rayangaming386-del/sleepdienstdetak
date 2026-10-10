@@ -247,7 +247,12 @@ export const PLACES = [
   { slug: "zoetermeer", name: "Zoetermeer" },
   { slug: "westland", name: "Westland" },
   { slug: "leidschendam-voorburg", name: "Leidschendam-Voorburg" },
-  { slug: "wassenaar", name: "Wassenaar" }
+  { slug: "wassenaar", name: "Wassenaar" },
+  { slug: "scheveningen", name: "Scheveningen" },
+  { slug: "ypenburg", name: "Ypenburg" },
+  { slug: "pijnacker-nootdorp", name: "Pijnacker-Nootdorp" },
+  { slug: "midden-delfland", name: "Midden-Delfland" },
+  { slug: "leiden", name: "Leiden" }
 ];
 
 const LANG_HOME = { nl: "/", en: "/en/", de: "/de/" };
@@ -269,6 +274,7 @@ export function header(page) {
         </div>
         <a href="/autotransport/"${active("/autotransport/")}>Autotransport</a>
         <a href="/werkgebied/"${active("/werkgebied/")}>${t.area}</a>
+        <a href="/kennisbank/"${page.path.startsWith("/kennisbank/") ? ' aria-current="page"' : ""}>Kennisbank</a>
         <a href="/veelgestelde-vragen/"${active("/veelgestelde-vragen/")}>FAQ</a>
         <a href="/contact/"${active("/contact/")}>${t.contact}</a>`
     : `<a href="${homeHref}#diensten">${t.services}</a>
@@ -310,7 +316,7 @@ export function footer(page) {
         </div>
         <div>
           <h2 class="footer-title">${t.area}</h2>
-          <ul>${PLACES.map((p) => `<li><a href="/sleepdienst-${p.slug}/">Sleepdienst ${p.name}</a></li>`).join("")}<li><a href="/werkgebied/">Nederland en Europa</a></li></ul>
+          <ul>${PLACES.slice(0, 7).map((p) => `<li><a href="/sleepdienst-${p.slug}/">Sleepdienst ${p.name}</a></li>`).join("")}<li><a href="/werkgebied/">Alle plaatsen, NL en Europa</a></li></ul>
         </div>`
     : "";
   return `<footer class="site-footer">
@@ -333,7 +339,7 @@ export function footer(page) {
     </div>
     <div class="wrap footer-bottom">
       <p>&copy; ${year} ${SITE.name} &middot; ${t.kvk}: ${SITE.kvk || `<span class="todo">${t.follows}</span>`} &middot; ${t.btw}: ${SITE.btw || `<span class="todo">${t.follows}</span>`}</p>
-      <p><a href="/privacy/">${t.privacy}</a>${nl ? ` &middot; <a href="/veelgestelde-vragen/">${t.faq}</a>` : ""}</p>
+      <p><a href="/privacy/">${t.privacy}</a>${nl ? ` &middot; <a href="/veelgestelde-vragen/">${t.faq}</a> &middot; <a href="/kennisbank/">Kennisbank</a> &middot; <a href="/werkgebied/">${t.area}</a>` : ""}</p>
     </div>
   </footer>`;
 }
@@ -536,7 +542,8 @@ export function ticker(lang = "nl") {
 
 // ---------- Kaart van de regio (inline SVG) ----------
 export function regioMap(highlight = "", { linked = true } = {}) {
-  const dots = regio.places.map((p) => {
+  // Extra plaatsen alleen tonen op hun eigen pagina, anders wordt de kaart te vol
+  const dots = regio.places.filter((p) => !p.extra || p.slug === highlight).map((p) => {
     const on = p.slug === highlight || (!highlight && p.main);
     const [x, y] = p.xy;
     const anchorEnd = ["westland"].includes(p.slug) ? false : false;
@@ -619,7 +626,7 @@ export function businessSchema() {
     priceRange: "Op aanvraag",
     address: { "@type": "PostalAddress", streetAddress: SITE.street, postalCode: SITE.postal, addressLocality: SITE.city, addressCountry: "NL" },
     geo: { "@type": "GeoCoordinates", latitude: 52.07, longitude: 4.3 },
-    areaServed: ["Den Haag", "Rijswijk", "Delft", "Zoetermeer", "Westland", "Leidschendam-Voorburg", "Wassenaar", "Nederland", "Europa"],
+    areaServed: [...PLACES.map((p) => p.name), "Nederland", "Europa"],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -676,7 +683,7 @@ export function layout(page) {
   <meta name="theme-color" content="#111111">
   ${page.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
   ${alternates}
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${page.ogType || "website"}">
   <meta property="og:site_name" content="${SITE.name}">
   <meta property="og:title" content="${esc(page.ogTitle || page.title)}">
   <meta property="og:description" content="${esc(page.description)}">

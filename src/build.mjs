@@ -8,6 +8,7 @@ import algemeen from "./pages/algemeen.mjs";
 import diensten from "./pages/diensten.mjs";
 import plaatsen from "./pages/plaatsen.mjs";
 import talen from "./pages/talen.mjs";
+import kennisbank from "./pages/kennisbank.mjs";
 
 const OUT = new URL("../site/", import.meta.url).pathname;
 
@@ -16,7 +17,7 @@ const version = createHash("md5")
   .update(["css/style.css", "js/main.js", "js/motion.js"].map((f) => readFileSync(join(OUT, f))).join(""))
   .digest("hex").slice(0, 8);
 
-const pages = [...algemeen, ...diensten, ...plaatsen, ...talen];
+const pages = [...algemeen, ...diensten, ...plaatsen, ...kennisbank, ...talen];
 
 for (const page of pages) {
   const file = page.file || join(page.path.replace(/^\//, ""), "index.html");
@@ -29,7 +30,7 @@ for (const page of pages) {
 // Sitemap
 const today = new Date().toISOString().slice(0, 10);
 const urls = pages.filter((p) => !p.noindex).map((p) => {
-  const prio = p.path === "/" ? "1.0" : p.path.startsWith("/sleepdienst-") ? "0.7" : "0.8";
+  const prio = p.path === "/" ? "1.0" : p.path.startsWith("/kennisbank/") ? "0.6" : p.path.startsWith("/sleepdienst-") ? "0.7" : "0.8";
   return `  <url><loc>${SITE.url}${p.path}</loc><lastmod>${today}</lastmod><priority>${prio}</priority></url>`;
 });
 writeFileSync(join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>

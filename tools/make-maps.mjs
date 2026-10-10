@@ -59,7 +59,13 @@ const denHaag = [4.3007, 52.0705];
     { slug: "zoetermeer", name: "Zoetermeer", c: [4.4931, 52.0575] },
     { slug: "westland", name: "Westland", c: [4.2094, 51.994] },
     { slug: "leidschendam-voorburg", name: "Leidschendam-Voorburg", c: [4.3889, 52.0833] },
-    { slug: "wassenaar", name: "Wassenaar", c: [4.4011, 52.1428] }
+    { slug: "wassenaar", name: "Wassenaar", c: [4.4011, 52.1428] },
+    // Extra plaatsen: alleen zichtbaar op hun eigen pagina
+    { slug: "scheveningen", name: "Scheveningen", c: [4.2747, 52.1080], extra: true },
+    { slug: "ypenburg", name: "Ypenburg", c: [4.3700, 52.0420], extra: true },
+    { slug: "pijnacker-nootdorp", name: "Pijnacker-Nootdorp", c: [4.4290, 52.0190], extra: true },
+    { slug: "midden-delfland", name: "Midden-Delfland", c: [4.2850, 51.9750], extra: true },
+    { slug: "leiden", name: "Leiden", c: [4.4970, 52.1600], extra: true }
   ].map((p) => ({ ...p, xy: proj(p.c).map(r) }));
   const [hx, hy] = proj(denHaag);
   const pxPerKm = proj([4.3007 + 1 / (111.32 * Math.cos((52.07 * Math.PI) / 180)), 52.0705])[0] - hx;

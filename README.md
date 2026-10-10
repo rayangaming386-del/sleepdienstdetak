@@ -17,7 +17,8 @@ Alles wat online moet staat in de map **`site/`**. Upload de inhoud van die map 
 | --- | --- |
 | Homepage | `/` |
 | Diensten | `/pechhulp/`, `/auto-afslepen/`, `/autotransport/`, `/ongevalsberging/`, `/auto-verkopen/`, `/zakelijk/` |
-| Plaatsen | `/sleepdienst-den-haag/`, `-rijswijk/`, `-delft/`, `-zoetermeer/`, `-westland/`, `-leidschendam-voorburg/`, `-wassenaar/` |
+| Plaatsen | `/sleepdienst-den-haag/`, `-rijswijk/`, `-delft/`, `-zoetermeer/`, `-westland/`, `-leidschendam-voorburg/`, `-wassenaar/`, `-scheveningen/`, `-ypenburg/`, `-pijnacker-nootdorp/`, `-midden-delfland/`, `-leiden/` |
+| Kennisbank | `/kennisbank/` met 6 artikelen (pech op de snelweg, kosten afslepen, auto uit het buitenland, sloopauto verkopen, elektrische auto afslepen, na een ongeluk) |
 | Overig | `/werkgebied/`, `/veelgestelde-vragen/`, `/contact/`, `/privacy/` |
 | Engels / Duits | `/en/`, `/de/` |
 
@@ -38,7 +39,7 @@ Alles wat online moet staat in de map **`site/`**. Upload de inhoud van die map 
 De HTML-pagina's worden gemaakt met een klein bouwscript. Pas teksten aan in `src/`, niet in `site/*.html`:
 
 - `src/site.mjs`: bedrijfsgegevens (telefoon, adres, **KvK- en btw-nummer**), menu, footer, formulier
-- `src/pages/`: de teksten per pagina
+- `src/pages/`: de teksten per pagina (nieuw artikel? voeg het toe in `src/pages/kennisbank.mjs`)
 
 Daarna opnieuw bouwen (Node.js nodig):
 
@@ -50,6 +51,12 @@ npm run serve    # bekijken op http://localhost:8000
 
 Hulpscripts in `tools/` (alleen nodig bij nieuwe foto's, iconen of kaarten):
 `python3 tools/make-images.py`, `node tools/extract-icons.mjs`, `npm run maps`.
+
+## SEO buiten de site
+
+- Google Bedrijfsprofiel aanmaken (categorie Sleepdienst, 24 uur open) en reviews verzamelen
+- Site aanmelden bij Google Search Console en `https://www.sleepdienstdetak.nl/sitemap.xml` indienen
+- Bing Places en Apple Business Connect, en vermeldingen in bedrijvengidsen met overal dezelfde naam, adres en telefoon
 
 ## Nog in te vullen
 

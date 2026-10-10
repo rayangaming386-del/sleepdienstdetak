@@ -5,6 +5,51 @@ import {
 } from "../site.mjs";
 
 const DATA = {
+  scheveningen: {
+    photo: "sleepwagens-nacht", focus: "20% 60%",
+    lead: "Pech of transport nodig in Scheveningen? Vanuit onze standplaats in Den Haag zijn we snel aan de kust, ook ’s nachts en in het weekend.",
+    local: [
+      "Bij de boulevard, de haven of in een smalle straat in het oude dorp: in Scheveningen is het vaak druk en is er weinig ruimte. Met onze compacte Sprinter met oprijplateau komen we ook op plekken waar een grote vrachtwagen niet past.",
+      "Op mooie dagen en tijdens evenementen is het extra druk aan de kust. Deel je locatie via het formulier, dan weten we precies waar je staat."
+    ],
+    areas: ["Scheveningen-Bad", "Scheveningen-Dorp", "Haven", "Duindorp", "Belgisch Park", "Westbroekpark", "Duttendel"]
+  },
+  ypenburg: {
+    photo: "transport-nacht", focus: "center 62%",
+    lead: "Sleepdienst en pechhulp in Ypenburg, Leidschenveen en Wateringse Veld. Snel ter plaatse vanuit Den Haag, ook bij knooppunt Ypenburg.",
+    local: [
+      "Ypenburg ligt bij het drukke knooppunt van de A4 en de A13. Krijg je daar pech, ga dan eerst veilig achter de vangrail staan en bel ons daarna.",
+      "In de woonwijken van Ypenburg, Leidschenveen en Wateringse Veld helpen we je met starthulp, afslepen of gepland transport naar je garage."
+    ],
+    areas: ["Ypenburg", "Leidschenveen", "Wateringse Veld", "Hoornwijck", "De Bras", "Singels"]
+  },
+  "pijnacker-nootdorp": {
+    photo: "sprinter-oprijplateau", focus: "center 55%",
+    lead: "Pechhulp, afslepen en autotransport in Pijnacker, Nootdorp en Delfgauw. Vanuit Den Haag snel bij je.",
+    local: [
+      "Pijnacker-Nootdorp ligt tussen Den Haag, Delft en Zoetermeer, vlak bij de A12 en de N470. Of je nu in een woonwijk staat of op een bedrijventerrein: we komen naar je toe met de oprijwagen.",
+      "Ook voor transport van en naar garages en autobedrijven in de gemeente kun je bij ons terecht."
+    ],
+    areas: ["Pijnacker", "Nootdorp", "Delfgauw", "Keijzershof", "Ackerswoude", "Koningshof"]
+  },
+  "midden-delfland": {
+    photo: "golf-oprijwagen", focus: "center 58%",
+    lead: "Sleepdienst en pechhulp in Midden-Delfland: Maasland, Schipluiden en Den Hoorn. Ook op de A4 door het polderlandschap.",
+    local: [
+      "Midden-Delfland ligt tussen Den Haag, Delft en Vlaardingen. Op de smalle polderwegen is het belangrijk dat een stilstaande auto snel weg is, voor je eigen veiligheid en die van anderen.",
+      "Pech op de A4 tussen Den Haag en Rotterdam? Ga eerst veilig achter de vangrail staan en bel ons daarna."
+    ],
+    areas: ["Maasland", "Schipluiden", "Den Hoorn", "'t Woudt", "Harnaschpolder"]
+  },
+  leiden: {
+    photo: "transport-nacht", focus: "center 62%",
+    lead: "Sleepdienst, pechhulp en autotransport in Leiden. Via de A4 en de A44 zijn we vanuit Den Haag snel bij je.",
+    local: [
+      "In de binnenstad van Leiden zijn de straten smal en is parkeren lastig. Onze compacte Sprinter met oprijplateau past ook daar, zodat we je auto veilig kunnen ophalen.",
+      "Ook in de wijken buiten het centrum, bij het Bio Science Park en op de A4 en A44 rond Leiden kun je ons bellen."
+    ],
+    areas: ["Binnenstad", "Merenwijk", "Stevenshof", "Leiden-Noord", "Roomburg", "Boerhaave", "Bio Science Park"]
+  },
   "den-haag": {
     photo: "sleepwagens-nacht", focus: "20% 60%",
     lead: "Onze standplaats is in Den Haag. Daardoor zijn we snel bij je, in elke wijk van de stad en op de snelwegen eromheen.",

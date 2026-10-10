@@ -3,6 +3,7 @@ import {
   SITE, icon, img, ctaButtons, aanvraagSection, faqList, faqSchema, breadcrumbSchema,
   businessSchema, serviceCards, regioMap, ctaBand, pageHero, telHref, waHref, PLACES, T, ticker
 } from "../site.mjs";
+import { articleTeasers } from "./kennisbank.mjs";
 
 // ---------- Veelgestelde vragen ----------
 const FAQ_GROUPS = [
@@ -232,6 +233,22 @@ const home = {
           <p data-reveal>Bij ons krijg je geen callcenter, maar direct contact met de mensen die je ook daadwerkelijk komen helpen. We vertellen vooraf wat de kosten zijn en gaan zorgvuldig met jouw voertuig om.</p>
           <a class="btn btn-yellow btn-lg" href="${telHref}" data-reveal>${icon("phone")}Bel ons: ${SITE.phoneDisplay}</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker" data-reveal>Kennisbank</p>
+            <h2 data-reveal>Handige informatie</h2>
+          </div>
+          <p class="section-lead" data-reveal>Wat doe je bij pech op de snelweg? Wat kost afslepen? Lees onze tips en uitleg.</p>
+        </div>
+        <div class="cards" data-stagger>
+          ${articleTeasers(["pech-op-de-snelweg", "wat-kost-auto-afslepen", "auto-uit-buitenland-laten-ophalen"])}
+        </div>
+        <a class="text-link" href="/kennisbank/" data-reveal>Alle artikelen ${icon("arrow-right")}</a>
       </div>
     </section>
 
